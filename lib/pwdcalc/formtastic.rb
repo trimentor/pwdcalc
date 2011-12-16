@@ -9,11 +9,11 @@ module Formtastic
         input_wrapping do
           label_html <<
           builder.password_field(method, input_html_options) <<
-          password_strength_meter(builder, method)
+          password_strength_meter
         end
       end
 
-      def password_strength_meter(builder, method)
+      def password_strength_meter
         template.content_tag(:p, "", :'data-field' => input_html_options[:id], :class => "password-strength-meter pwdcalc")
       end
     end
