@@ -7,6 +7,7 @@ module Pwdcalc
         # Rails 3.1 has the asset pipeline, no need to copy JS files any more.
       else
         copy_file "../../../../../app/assets/javascripts/jquery.YAPSM.min.js", "public/javascripts/jquery.YAPSM.min.js"
+        copy_file "../../../../../app/assets/javascripts/jquery.pwdcalc.js", "public/javascripts/jquery.pwdcalc.js"
       end
 
       def copy_locales
