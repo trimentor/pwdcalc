@@ -58,6 +58,27 @@ There are no stylesheets available because it's very easy to define your own sty
   .pwdcalc[data-complexity="very-strong"]{color:#339900;}
   .pwdcalc[data-complexity="dictionary-word"]{color:#CC3333;}
 
+== Usage
+
+=== Using Formtastic
+
+To create a password field/-strength meter combination, simply add the following line inside your form:
+
+  <%= form.input :password, :as => :pwdcalc %>
+
+That's it!
+
+=== Localized Hints
+
+Add the following line somewhere inside your view (e.g. at the bottom of your page):
+
+  <%= pwdcalc_hints %>
+
+Make sure that the rendered content is hidden:
+
+  // CSS
+  .pwdcalc-hints {display:none;}
+
 == Bug Tracker
 
 Have a bug? Please create an issue {here}[https://github.com/trimentor/pwdcalc/issues] on GitHub!
