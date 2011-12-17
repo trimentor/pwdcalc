@@ -79,6 +79,10 @@ Make sure that the rendered content is hidden:
   // CSS
   .pwdcalc-hints {display:none;}
 
+== YAPSM (Yet Another Password Strength Meter)
+
+The project page of this jQuery plugin can be found {here}[https://github.com/trimentor/YAPSM] on GitHub!
+
 == Bug Tracker
 
 Have a bug? Please create an issue {here}[https://github.com/trimentor/pwdcalc/issues] on GitHub!
