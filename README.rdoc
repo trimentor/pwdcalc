@@ -79,6 +79,30 @@ Make sure that the rendered content is hidden:
   // CSS
   .pwdcalc-hints {display:none;}
 
+=== Dictionary Attacks
+
+Many people have a tendency to choose passwords which are short, single words found in dictionaries or simple,
+easily-predicted variations on words, vulnerable for dictionary attacks.
+
+It's easy to provide a list of *obvious* passwords.
+
+Just copy the jquery.pwdcalc.js file, locate this line:
+
+  ...
+  $(passwordField).yapsm().keyup(function() {
+  ...
+
+and change it into this one:
+
+  ...
+  $(passwordField).yapsm({
+    dictionary:['password', '123456', '12345678', 'qwerty', 'abc123', 'monkey', '1234567', 'letmein', ... , 'trustno1']
+  })
+  .keyup(function() {
+  ...
+
+Once you've updated this file your users will be warned if they choose a dictionary word!
+
 == YAPSM (Yet Another Password Strength Meter)
 
 The project page of this jQuery plugin can be found {here}[https://github.com/trimentor/YAPSM] on GitHub!
