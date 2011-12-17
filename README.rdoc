@@ -1,6 +1,111 @@
 = pwdcalc
 
-Calculates the strength of user-chosen passwords.
+Pwdcalc is a Rails 3 gem to create password field/-strength meter combinations.
+Take no risk and help your users to choose good passwords!
+
+Works with Formtastic!
+
+== Installation
+
+Add pwdcalc to your Gemfile and bundle it up:
+
+  gem 'pwdcalc'
+
+Run the installation generator:
+
+  rails g pwdcalc:install
+
+=== JavaScript usage in Rails < 3.1
+
+Add the following asset tag to the <head> section of your layout:
+
+  <%= javascript_include_tag :pwdcalc %>
+
+=== JavaScript usage in Rails >= 3.1
+
+Add the following lines to your JavaScript manifest file:
+
+  //= require jquery.YAPSM.min
+  //= require jquery.pwdcalc
+
+For example, in the default Rails application there's a app/assets/javascripts/application.js file which contains
+the following lines:
+
+  // ...
+  //= require jquery
+  //= require jquery_ujs
+  //= require_tree .
+
+This file should become:
+
+  // ...
+  //= require jquery
+  //= require jquery_ujs
+  //= require jquery.YAPSM.min
+  //= require jquery.pwdcalc
+  //= require_tree .
+
+=== Stylesheets
+
+There are no stylesheets available because it's very easy to define your own style:
+
+  // CSS
+  .pwdcalc-hints{display:none;}
+  .pwdcalc[data-complexity="weak"]{color:#F89406;}
+  .pwdcalc[data-complexity="fair"]{color:#339900;}
+  .pwdcalc[data-complexity="good"]{color:#339900;}
+  .pwdcalc[data-complexity="strong"]{color:#339900;}
+  .pwdcalc[data-complexity="very-strong"]{color:#339900;}
+  .pwdcalc[data-complexity="dictionary-word"]{color:#CC3333;}
+
+== Usage
+
+=== Using Formtastic
+
+To create a password field/-strength meter combination, simply add the following line inside your form:
+
+  <%= form.input :password, :as => :pwdcalc %>
+
+That's it!
+
+=== Localized Hints
+
+Add the following line somewhere inside your view (e.g. at the bottom of your page):
+
+  <%= pwdcalc_hints %>
+
+Make sure that the rendered content is hidden:
+
+  // CSS
+  .pwdcalc-hints {display:none;}
+
+=== Dictionary Attacks
+
+Many people have a tendency to choose passwords which are short, single words found in dictionaries or simple,
+easily-predicted variations on words, vulnerable for dictionary attacks.
+
+It's easy to provide a list of *obvious* passwords.
+
+Just copy the jquery.pwdcalc.js file, locate this line:
+
+  ...
+  $(passwordField).yapsm().keyup(function() {
+  ...
+
+and change it into this one:
+
+  ...
+  $(passwordField).yapsm({
+    dictionary:['password', '123456', '12345678', 'qwerty', 'abc123', 'monkey', '1234567', 'letmein', ... , 'trustno1']
+  })
+  .keyup(function() {
+  ...
+
+Once you've updated this file your users will be warned if they choose a dictionary word!
+
+== YAPSM (Yet Another Password Strength Meter)
+
+The project page of this jQuery plugin can be found {here}[https://github.com/trimentor/YAPSM] on GitHub!
 
 == Bug Tracker
 
