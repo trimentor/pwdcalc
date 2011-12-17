@@ -26,14 +26,21 @@ $(document).ready(function() {
         var passwordField = "#" + $(this).data('field');
 
         $(passwordField).yapsm().keyup(function() {
+            var strength = this.complexity;
+            var localizedHint = $(".pwdcalc-hint[data-complexity='"+strength+"']").html();
+
             if(!$.trim(this.value).length) {
                 $(passwordStrengthMeter).hide();
                 $(passwordStrengthMeter).empty();
             } else {
                 $(passwordStrengthMeter).show();
-                $(passwordStrengthMeter).html(this.complexity);
+                $(passwordStrengthMeter).attr('data-complexity', strength);
+                if(!$.trim(localizedHint).length) {
+                    $(passwordStrengthMeter).html(strength);
+                } else {
+                    $(passwordStrengthMeter).html(localizedHint);
+                }
             }
-
         });
     });
 });
