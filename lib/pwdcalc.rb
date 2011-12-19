@@ -1,4 +1,3 @@
-require "pwdcalc/formtastic"
 require "pwdcalc/helpers/hints"
 
 module Pwdcalc
@@ -9,6 +8,12 @@ module Pwdcalc
     end
 
     initializer "pwdcalc.initialize" do
+
+      # Add custom input to Formtastic if it's included in Gemfile
+      if defined?(Formtastic)
+        require 'pwdcalc/formtastic'
+      end
+
       ActionView::Base.send :include, Pwdcalc::Helpers::Hints
     end
   end
