@@ -103,6 +103,8 @@ and change it into this one:
 
 Once you've updated this file your users will be warned if they choose a dictionary word!
 
+Need inspiration? Click {here}[https://github.com/trimentor/YAPSM/blob/master/dictionary.txt] for a list of obvious passwords.
+
 == YAPSM (Yet Another Password Strength Meter)
 
 The project page of this jQuery plugin can be found {here}[https://github.com/trimentor/YAPSM] on GitHub!
