@@ -10,13 +10,13 @@ module Pwdcalc
         end
       end
 
-      def localized_hints
+      def translate_hints
         STRENGTH_TYPES.collect {|strength_type| I18n.t("pwdcalc.#{strength_type}") }
       end
 
       def to_html
         hints = []
-        localized_hints.each_with_index do |hint, index|
+        translate_hints.each_with_index do |hint, index|
           hints << content_tag(:p, hint, :class => "password-strength-meter pwdcalc-hint", :'data-complexity' => STRENGTH_TYPES[index].to_s.gsub(/_/, '-'))
         end
         hints.join("\n").html_safe
