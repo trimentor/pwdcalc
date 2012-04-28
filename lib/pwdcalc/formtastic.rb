@@ -9,7 +9,16 @@ module Formtastic
         input_wrapping do
           label_html <<
           builder.password_field(method, input_html_options) <<
+          password_strength_score <<
           password_strength_meter
+        end
+      end
+
+      def password_strength_score
+        template.content_tag(:div, :class => "pwdcalc-score") do
+          template.content_tag(:span) do
+            template.content_tag(:b, "")
+          end
         end
       end
 
