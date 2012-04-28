@@ -1,0 +1,104 @@
+$pwdcalc_score_background_color: #EEE;
+$pwdcalc_weak_text_color: #CC3333;
+$pwdcalc_fair_text_color: #F89406;
+$pwdcalc_good_text_color: #339900;
+$pwdcalc_ditionary_word_text_color: #CC3333;
+
+.pwdcalc {
+  position: relative;
+}
+
+.pwdcalc-hints {
+  display: none;
+}
+
+.password-strength-meter {
+  display:none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.pwdcalc-score {
+  $step_width: 10px;
+  display: none;
+  position: absolute;
+  height: 10px;
+  width: $step_width * 5;
+
+  span, b {
+    display: block;
+    height: inherit;
+  }
+
+  span {
+    background-color: $pwdcalc_score_background_color;
+    width: inherit;
+
+    b {
+      width: 1px;
+      background-color: $pwdcalc_good_text_color;
+      content: "";
+    }
+  }
+
+  &[data-strength="dictionary-word"] b {
+    width: $step_width * 5;
+    background-color: darken($pwdcalc_ditionary_word_text_color, 5);
+  }
+
+  &[data-strength="weak"] b {
+    width: $step_width;
+    background-color: darken($pwdcalc_weak_text_color, 5);
+  }
+
+  &[data-strength="fair"] b {
+    width: $step_width * 2;
+    background-color: darken($pwdcalc_fair_text_color, 5);
+  }
+
+  &[data-strength="good"] b {
+    width: $step_width * 3;
+  }
+
+  &[data-strength="strong"] b {
+    width: $step_width * 4;
+  }
+
+  &[data-strength="very-strong"] b {
+    width: $step_width * 5;
+  }
+}
+
+.pwdcalc[data-complexity="weak"] {
+  color: $pwdcalc_weak_text_color;
+}
+.pwdcalc[data-complexity="fair"] {
+  color: $pwdcalc_fair_text_color;
+}
+.pwdcalc[data-complexity="good"] {
+  color: $pwdcalc_good_text_color;
+}
+.pwdcalc[data-complexity="strong"] {
+  color: $pwdcalc_good_text_color;
+}
+.pwdcalc[data-complexity="very-strong"] {
+  color: $pwdcalc_good_text_color;
+}
+.pwdcalc[data-complexity="dictionary-word"] {
+  color: $pwdcalc_ditionary_word_text_color;
+}
+
+.formtastic {
+  .input {
+    .pwdcalc-score {
+      top: 1em;
+      right: 3%;
+    }
+
+    .password-strength-meter {
+      margin: 0.5em 0 0 25%;
+    }
+  }
+}
