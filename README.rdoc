@@ -15,48 +15,35 @@ Run the installation generator:
 
   rails g pwdcalc:install
 
-=== JavaScript usage in Rails < 3.1
+=== JavaScript
+
+==== Rails < 3.1
 
 Add the following asset tag to the <head> section of your layout:
 
-  <%= javascript_include_tag :pwdcalc %>
+  <%= javascript_include_tag "jquery.YAPSM.min", "jquery.pwdcalc" %>
 
-=== JavaScript usage in Rails >= 3.1
+==== Rails >= 3.1
 
-Add the following lines to your JavaScript manifest file:
+Add the following directives to your JavaScript manifest file:
 
   //= require jquery.YAPSM.min
   //= require jquery.pwdcalc
-
-For example, in the default Rails application there's a app/assets/javascripts/application.js file which contains
-the following lines:
-
-  // ...
-  //= require jquery
-  //= require jquery_ujs
-  //= require_tree .
-
-This file should become:
-
-  // ...
-  //= require jquery
-  //= require jquery_ujs
-  //= require jquery.YAPSM.min
-  //= require jquery.pwdcalc
-  //= require_tree .
 
 === Stylesheets
 
-There are no stylesheets available because it's very easy to define your own style:
+==== Rails < 3.1
 
-  // CSS
-  .pwdcalc-hints{display:none;}
-  .pwdcalc[data-complexity="weak"]{color:#F89406;}
-  .pwdcalc[data-complexity="fair"]{color:#339900;}
-  .pwdcalc[data-complexity="good"]{color:#339900;}
-  .pwdcalc[data-complexity="strong"]{color:#339900;}
-  .pwdcalc[data-complexity="very-strong"]{color:#339900;}
-  .pwdcalc[data-complexity="dictionary-word"]{color:#CC3333;}
+Add the following asset tag to the <head> section of your layout:
+
+  <%= stylesheet_link_tag "formtastic", "pwdcalc" %>
+
+==== Rails >= 3.1
+
+Add the following directives to your CSS manifest file:
+
+  *= require formtastic
+  *= require pwdcalc
 
 == Usage
 
@@ -73,11 +60,6 @@ That's it!
 Add the following line somewhere inside your view (e.g. at the bottom of your page):
 
   <%= pwdcalc_hints %>
-
-Make sure that the rendered content is hidden:
-
-  // CSS
-  .pwdcalc-hints {display:none;}
 
 === Dictionary Attacks
 

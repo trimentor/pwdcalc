@@ -34,6 +34,10 @@ describe Pwdcalc::Generators::InstallGenerator do
       describe "public/javascripts/jquery.pwdcalc.js" do
         it { assert_no_file 'public/javascripts/jquery.pwdcalc.js' }
       end
+
+      describe "public/stylesheets/pwdcalc.css.scss" do
+        it { assert_no_file 'public/stylesheets/pwdcalc.css.scss' }
+      end
     end
   end
 
@@ -54,6 +58,10 @@ describe Pwdcalc::Generators::InstallGenerator do
 
       describe "public/javascripts/jquery.pwdcalc.js" do
         it { assert_file 'public/javascripts/jquery.pwdcalc.js' }
+      end
+
+      describe "public/stylesheets/pwdcalc.css.scss" do
+        it { assert_file 'public/stylesheets/pwdcalc.css.scss' }
       end
     end
   end

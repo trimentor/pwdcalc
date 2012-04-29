@@ -17,6 +17,13 @@ module Pwdcalc
         end
       end
 
+      def copy_stylesheets
+        if ::Rails.version[0..2].to_f >= 3.1
+          # Rails 3.1 has the asset pipeline, no need to copy CSS files any more.
+        else
+          copy_file "../../../../../app/assets/stylesheets/pwdcalc.css.scss", "public/stylesheets/pwdcalc.css.scss"
+        end
+      end
     end
   end
 end
