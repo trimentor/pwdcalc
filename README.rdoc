@@ -66,26 +66,27 @@ Add the following line somewhere inside your view (e.g. at the bottom of your pa
 Many people have a tendency to choose passwords which are short, single words found in dictionaries or simple,
 easily-predicted variations on words, vulnerable for dictionary attacks.
 
-It's easy to provide a list of *obvious* passwords.
+It's easy to provide a list of *obvious* passwords. Just add the +data-dictionary+ attribute to the input field:
 
-Just copy the jquery.pwdcalc.js file, locate this line:
+  <%= form.input :password, :as => :pwdcalc, :'data-dictionary' => 'obviousPasswords()' %>
 
-  ...
-  $(passwordField).yapsm().keyup(function() {
-  ...
-
-and change it into this one:
-
-  ...
-  $(passwordField).yapsm({
-    dictionary:['password', '123456', '12345678', 'qwerty', 'abc123', 'monkey', '1234567', 'letmein', ... , 'trustno1']
-  })
-  .keyup(function() {
-  ...
-
-Once you've updated this file your users will be warned if they choose a dictionary word!
+Keep in mind that the value should evaluate to an array.
 
 Need inspiration? Click {here}[https://github.com/trimentor/YAPSM/blob/master/dictionary.txt] for a list of obvious passwords.
+
+=== Events
+
+==== $(document).bind('pwdcalc-submit', handler(eventObject, origEventObject, field))
+
+The +pwdcalc-submit+ event is sent to the document when the user is attempting to submit the form.
+
+==== $(document).bind('pwdcalc-keyup-init', handler(eventObject, origEventObject, field))
+
+The +pwdcalc-keyup-init+ event is sent to the document when the user releases a key on the keyboard and before a score and hint is shown or hidden.
+
+==== $(document).bind('pwdcalc-keyup-complete', handler(eventObject, origEventObject, field))
+
+The +pwdcalc-keyup-complete+ event is sent to the document when the user releases a key on the keyboard and after a score and hint is shown or hidden.
 
 == YAPSM (Yet Another Password Strength Meter)
 
