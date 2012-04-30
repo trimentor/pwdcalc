@@ -17,13 +17,17 @@ $(document).ready(function () {
             $(document).trigger('pwdcalc-submit', [event, passwordField]);
         });
 
-        passwordField.yapsm().keyup(function () {
-            var strength, localizedHint;
+        passwordField.yapsm().keyup(function (event) {
+            var val, minLength, strength, localizedHint;
 
+            val = $.trim(this.value);
+            minLength = $(this).data('minlength');
             strength = this.complexity;
             localizedHint = $(".pwdcalc-hint[data-complexity='" + strength + "']").html();
 
-            if (!$.trim(this.value).length) {
+            $(document).trigger('pwdcalc-keyup-init', [event, $(this)]);
+
+            if (!val.length || (minLength && val.length < minLength)) {
                 passwordStrengthMeter.hide();
                 passwordStrengthMeter.empty();
                 passwordScore.hide();
@@ -37,6 +41,8 @@ $(document).ready(function () {
                     passwordStrengthMeter.html(localizedHint);
                 }
             }
+
+            $(document).trigger('pwdcalc-keyup-complete', [event, $(this)]);
         });
     });
 });
