@@ -17,7 +17,20 @@ $(document).ready(function () {
             $(document).trigger('pwdcalc-submit', [event, passwordField]);
         });
 
-        passwordField.yapsm().keyup(function (event) {
+        passwordField.yapsm({
+            dictionary: function() {
+                var dataDictionary, list;
+                dataDictionary = passwordField.data('dictionary');
+                list = [];
+
+                if(dataDictionary) {
+                    try {
+                        list = eval(dataDictionary);
+                    } catch(error) {}
+                }
+                return list;
+            }
+        }).keyup(function (event) {
             var val, minLength, strength, localizedHint;
 
             val = $.trim(this.value);
