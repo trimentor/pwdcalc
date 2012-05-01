@@ -109,4 +109,4 @@ https://github.com/trimentor/pwdcalc/issues
 
 == Copyright
 
-Copyright (c) 2011 Kjel Delaey, released under the MIT license.
+Copyright (c) 2012 Kjel Delaey, released under the MIT license.

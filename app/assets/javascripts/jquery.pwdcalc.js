@@ -1,7 +1,7 @@
 /*!
  * jquery.pwdcalc.js
  *
- * Copyright 2011, Kjel Delaey (https://github.com/trimentor/pwdcalc)
+ * Copyright 2012, Kjel Delaey (https://github.com/trimentor/pwdcalc)
  * https://github.com/trimentor/pwdcalc/blob/master/LICENSE
  */
 $(document).ready(function () {
