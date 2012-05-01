@@ -4,29 +4,29 @@
  * Copyright 2012, Kjel Delaey (https://github.com/trimentor/pwdcalc)
  * https://github.com/trimentor/pwdcalc/blob/master/LICENSE
  */
-$(document).ready(function () {
+$(function () {
     $("li.pwdcalc").each(function () {
         var pwdcalc, passwordStrengthMeter, passwordField, passwordScore;
 
         pwdcalc = $(this);
         passwordStrengthMeter = $('.pwdcalc', pwdcalc);
-        passwordField = $('#'+passwordStrengthMeter.data('field'));
+        passwordField = $('#' + passwordStrengthMeter.data('field'));
         passwordScore = passwordField.next(".pwdcalc-score");
 
-        $(this).closest('form').submit(function(event) {
+        $(this).closest('form').submit(function (event) {
             $(document).trigger('pwdcalc-submit', [event, passwordField]);
         });
 
         passwordField.yapsm({
-            dictionary: function() {
+            dictionary: function () {
                 var dataDictionary, list;
                 dataDictionary = passwordField.data('dictionary');
                 list = [];
 
-                if(dataDictionary) {
+                if (dataDictionary) {
                     try {
                         list = eval(dataDictionary);
-                    } catch(error) {}
+                    } catch (error) {}
                 }
                 return list;
             }
