@@ -72,8 +72,6 @@ It's easy to provide a list of *obvious* passwords. Just add the +data-dictionar
 
 Keep in mind that the value should evaluate to an array.
 
-Need inspiration? Click {here}[https://github.com/trimentor/YAPSM/blob/master/dictionary.txt] for a list of obvious passwords.
-
 === Events
 
 ==== $(document).bind('pwdcalc-submit', handler(eventObject, origEventObject, field))
