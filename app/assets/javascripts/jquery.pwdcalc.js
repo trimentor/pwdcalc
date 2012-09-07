@@ -5,13 +5,13 @@
  * https://github.com/trimentor/pwdcalc/blob/master/LICENSE
  */
 $(function () {
-    $("li.pwdcalc").each(function () {
+    $("li.pwdcalc, div.pwdcalc_simple").each(function () {
         var pwdcalc, passwordStrengthMeter, passwordField, passwordScore;
 
         pwdcalc = $(this);
         passwordStrengthMeter = $('.pwdcalc', pwdcalc);
-        passwordField = $('#' + passwordStrengthMeter.data('field'));
-        passwordScore = passwordField.next(".pwdcalc-score");
+        passwordField = $('input', pwdcalc);
+        passwordScore = $('.pwdcalc-score', pwdcalc);
 
         $(this).closest('form').submit(function (event) {
             $(document).trigger('pwdcalc-submit', [event, passwordField]);
