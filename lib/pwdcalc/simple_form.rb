@@ -1,4 +1,4 @@
-class PwdcalcSimpleInput < SimpleForm::Inputs::Base
+class PwdcalcSimpleInput < SimpleForm::Inputs::PasswordInput
   include Pwdcalc::PasswordStrength
 
   def input
