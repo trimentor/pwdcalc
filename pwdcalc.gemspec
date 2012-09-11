@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "pwdcalc"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kjel Delaey"]
-  s.date = "2012-04-30"
+  s.date = "2012-09-11"
   s.description = "Pwdcalc is a Rails 3 gem to create password field/-strength meter combinations. Take no risk and help your users to choose good passwords!"
   s.email = "kjel_delaey@hotmail.com"
   s.extra_rdoc_files = [
@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
     "lib/pwdcalc.rb",
     "lib/pwdcalc/formtastic.rb",
     "lib/pwdcalc/helpers/hints.rb",
+    "lib/pwdcalc/password_strength.rb",
+    "lib/pwdcalc/simple_form.rb",
     "lib/pwdcalc/version.rb",
     "pwdcalc.gemspec",
     "spec/.gitignore",
@@ -70,7 +72,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "https://github.com/trimentor/pwdcalc"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.24"
   s.summary = "Calculates the strength of user-chosen passwords."
 
   if s.respond_to? :specification_version then
