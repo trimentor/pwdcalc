@@ -3,7 +3,7 @@
 Pwdcalc is a Rails 3 gem to create password field/-strength meter combinations.
 Take no risk and help your users to choose good passwords!
 
-Works with Formtastic!
+Formtastic and SimpleForm are both supported!
 
 == Installation
 
@@ -47,11 +47,15 @@ Add the following directives to your CSS manifest file:
 
 == Usage
 
+To create a password field/-strength meter combination, simply put the following line in your form:
+
 === Using Formtastic
 
-To create a password field/-strength meter combination, simply add the following line inside your form:
-
   <%= form.input :password, :as => :pwdcalc %>
+
+=== Using SimpleForm
+
+  <%= form.input :password, :as => :pwdcalc_simple %>
 
 That's it!
 
