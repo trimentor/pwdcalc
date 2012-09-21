@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "pwdcalc"
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kjel Delaey"]
-  s.date = "2012-09-11"
+  s.date = "2012-09-21"
   s.description = "Pwdcalc is a Rails 3 gem to create password field/-strength meter combinations. Take no risk and help your users to choose good passwords!"
   s.email = "kjel_delaey@hotmail.com"
   s.extra_rdoc_files = [
