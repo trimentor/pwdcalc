@@ -51,7 +51,8 @@ class @Pwdcalc
         $strengthMeter.html i18nStrength
 
   trigger: (eventType, event) ->
-    $(document).trigger eventType, [event, @$input]
+    $input = $('input', @$inputWrapper)
+    $(document).trigger eventType, [event, $input]
 
 $ ->
   $("li.pwdcalc, div.pwdcalc_simple").each ->

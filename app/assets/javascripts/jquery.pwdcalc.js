@@ -75,7 +75,9 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
     };
 
     Pwdcalc.prototype.trigger = function(eventType, event) {
-      return $(document).trigger(eventType, [event, this.$input]);
+      var $input;
+      $input = $('input', this.$inputWrapper);
+      return $(document).trigger(eventType, [event, $input]);
     };
 
     return Pwdcalc;
