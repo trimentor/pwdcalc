@@ -45,10 +45,11 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
     };
 
     Pwdcalc.prototype.calculateStrength = function(event) {
-      var $input, i18nStrength, pwd, requiredChars, strength;
+      var $input, i18nStrength, pwd, requiredChars, strength, yapsmInput;
       $input = $('input', this.$inputWrapper);
-      pwd = $.trim($input[0].value);
-      strength = $input[0].complexity;
+      yapsmInput = $input[$input.length - 1];
+      pwd = $.trim(yapsmInput.value);
+      strength = yapsmInput.complexity;
       requiredChars = $input.data('minlength');
       i18nStrength = $(".pwdcalc-hint[data-complexity=" + strength + "]").html();
       this.trigger('pwdcalc-keyup-init', event);

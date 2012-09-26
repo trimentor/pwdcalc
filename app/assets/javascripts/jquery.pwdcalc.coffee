@@ -26,8 +26,10 @@ class @Pwdcalc
 
   calculateStrength: (event) ->
     $input = $('input', @$inputWrapper)
-    pwd = $.trim $input[0].value
-    strength = $input[0].complexity
+    yapsmInput = $input[$input.length-1]
+
+    pwd = $.trim yapsmInput.value
+    strength = yapsmInput.complexity
     requiredChars = $input.data 'minlength'
     i18nStrength = $(".pwdcalc-hint[data-complexity=#{strength}]").html()
 
