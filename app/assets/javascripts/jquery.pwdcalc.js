@@ -45,9 +45,16 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
     };
 
     Pwdcalc.prototype.calculateStrength = function(event) {
-      var $input, i18nStrength, pwd, requiredChars, strength, yapsmInput;
+      var $input, el, i18nStrength, pwd, requiredChars, strength, yapsmInput, _i, _len;
       $input = $('input', this.$inputWrapper);
-      yapsmInput = $input[$input.length - 1];
+      yapsmInput = 'undefined';
+      for (_i = 0, _len = $input.length; _i < _len; _i++) {
+        el = $input[_i];
+        if (el.complexity) {
+          yapsmInput = el;
+          break;
+        }
+      }
       pwd = $.trim(yapsmInput.value);
       strength = yapsmInput.complexity;
       requiredChars = $input.data('minlength');

@@ -26,7 +26,12 @@ class @Pwdcalc
 
   calculateStrength: (event) ->
     $input = $('input', @$inputWrapper)
-    yapsmInput = $input[$input.length-1]
+
+    yapsmInput = 'undefined'
+    for el in $input
+      if el.complexity
+        yapsmInput = el
+        break
 
     pwd = $.trim yapsmInput.value
     strength = yapsmInput.complexity
