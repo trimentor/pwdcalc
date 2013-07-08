@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "pwdcalc"
-  s.version = "0.1.8"
+  s.version = "0.1.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kjel Delaey"]
-  s.date = "2012-09-26"
-  s.description = "Pwdcalc is a Rails 3 gem to create password field/-strength meter combinations. Take no risk and help your users to choose good passwords!"
+  s.date = "2013-07-08"
+  s.description = "Take no risk and help your users to choose good passwords!"
   s.email = "kjel_delaey@hotmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
@@ -73,11 +73,11 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "https://github.com/trimentor/pwdcalc"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "2.0.3"
   s.summary = "Calculates the strength of user-chosen passwords."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<jeweler>, [">= 0"])
