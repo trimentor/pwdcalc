@@ -1,5 +1,6 @@
-require "pwdcalc/helpers/hints"
-require 'pwdcalc/password_strength'
+require 'pwdcalc/helpers/form_helper'
+require 'pwdcalc/helpers/hints'
+require 'pwdcalc/form_builder'
 
 module Pwdcalc
   # Required for jquery.YAPSM.min.js and jquery.pwdcalc.js to be discoverable in the asset pipeline
@@ -11,15 +12,7 @@ module Pwdcalc
     end
 
     initializer "pwdcalc.initialize" do
-      # Add custom input to Formtastic if it's included in Gemfile
-      if defined?(Formtastic)
-        require 'pwdcalc/formtastic'
-      end
-
-      if defined?(SimpleForm)
-        require 'pwdcalc/simple_form'
-      end
-
+      ActionView::Base.send :include, Pwdcalc::Helpers::FormHelper
       ActionView::Base.send :include, Pwdcalc::Helpers::Hints
     end
   end

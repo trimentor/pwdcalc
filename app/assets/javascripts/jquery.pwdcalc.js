@@ -63,19 +63,19 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
     };
 
     Pwdcalc.prototype.showStrength = function(strength, i18nStrength, pwd, requiredChars) {
-      var $score, $strengthMeter;
-      $strengthMeter = $('.pwdcalc', this.$inputWrapper);
-      $score = $('.pwdcalc-score', this.$inputWrapper);
+      var $gauge, $helpBlock;
+      $helpBlock = $('.pwdcalc-help-block', this.$inputWrapper);
+      $gauge = $('.pwdcalc-gauge', this.$inputWrapper);
       if (!pwd.length || (requiredChars && pwd.length < requiredChars)) {
-        $strengthMeter.hide().empty();
-        return $score.hide();
+        $helpBlock.hide().empty();
+        return $gauge.hide();
       } else {
-        $strengthMeter.show().attr('data-complexity', strength);
-        $score.attr('data-strength', strength).show();
+        $helpBlock.show().attr('data-complexity', strength);
+        $gauge.attr('data-strength', strength).show();
         if (i18nStrength === undefined || !$.trim(i18nStrength.length)) {
-          return $strengthMeter.html(strength);
+          return $helpBlock.html(strength);
         } else {
-          return $strengthMeter.html(i18nStrength);
+          return $helpBlock.html(i18nStrength);
         }
       }
     };
@@ -91,9 +91,8 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
   })();
 
   $(function() {
-    return $("li.pwdcalc, div.pwdcalc_simple").each(function() {
-      var inputWrapper;
-      return inputWrapper = new Pwdcalc(this);
+    return $(".pwdcalc-form-group").each(function() {
+      return new Pwdcalc(this);
     });
   });
 

@@ -4,7 +4,7 @@ $pwdcalc_fair_text_color: #F89406;
 $pwdcalc_good_text_color: #339900;
 $pwdcalc_ditionary_word_text_color: #CC3333;
 
-.pwdcalc {
+.pwdcalc-form-group {
   position: relative;
 }
 
@@ -12,18 +12,13 @@ $pwdcalc_ditionary_word_text_color: #CC3333;
   display: none;
 }
 
-.password-strength-meter {
+.password-help-block {
   display:none;
-
-  &.active {
-    display: block;
-  }
 }
 
-.pwdcalc-score {
+.pwdcalc-gauge {
   $step_width: 10px;
   display: none;
-  position: absolute;
   height: 10px;
   width: $step_width * 5;
 
@@ -71,34 +66,21 @@ $pwdcalc_ditionary_word_text_color: #CC3333;
   }
 }
 
-.pwdcalc[data-complexity="weak"] {
+.pwdcalc-help-block[data-complexity="weak"] {
   color: $pwdcalc_weak_text_color;
 }
-.pwdcalc[data-complexity="fair"] {
+.pwdcalc-help-block[data-complexity="fair"] {
   color: $pwdcalc_fair_text_color;
 }
-.pwdcalc[data-complexity="good"] {
+.pwdcalc-help-block[data-complexity="good"] {
   color: $pwdcalc_good_text_color;
 }
-.pwdcalc[data-complexity="strong"] {
+.pwdcalc-help-block[data-complexity="strong"] {
   color: $pwdcalc_good_text_color;
 }
-.pwdcalc[data-complexity="very-strong"] {
+.pwdcalc-help-block[data-complexity="very-strong"] {
   color: $pwdcalc_good_text_color;
 }
-.pwdcalc[data-complexity="dictionary-word"] {
+.pwdcalc-help-block[data-complexity="dictionary-word"] {
   color: $pwdcalc_ditionary_word_text_color;
-}
-
-.formtastic {
-  .input {
-    .pwdcalc-score {
-      top: 1em;
-      right: 3%;
-    }
-
-    .password-strength-meter {
-      margin: 0.5em 0 0 25%;
-    }
-  }
 }
