@@ -79,17 +79,19 @@ Keep in mind that the value should evaluate to an array.
 
 === Events
 
-==== $(document).bind('pwdcalc-submit', handler(eventObject, origEventObject, field))
-
 The +pwdcalc-submit+ event is sent to the document when the user is attempting to submit the form.
 
-==== $(document).bind('pwdcalc-keyup-init', handler(eventObject, origEventObject, field))
+  $(document).bind('pwdcalc-submit', handler(eventObject, origEventObject, field))
 
 The +pwdcalc-keyup-init+ event is sent to the document when the user releases a key on the keyboard and before a score and hint is shown or hidden.
 
-==== $(document).bind('pwdcalc-keyup-complete', handler(eventObject, origEventObject, field))
+  $(document).bind('pwdcalc-keyup-init', handler(eventObject, origEventObject, field))
 
 The +pwdcalc-keyup-complete+ event is sent to the document when the user releases a key on the keyboard and after a score and hint is shown or hidden.
+
+  $(document).bind('pwdcalc-keyup-complete', handler(eventObject, origEventObject, field))
+
+**NOTE:** As of jQuery 1.7, the {.on()}[http://api.jquery.com/on/] method is the preferred method for attaching event handlers to a document.
 
 == YAPSM (Yet Another Password Strength Meter)
 
