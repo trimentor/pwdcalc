@@ -18,7 +18,7 @@ describe Pwdcalc::Generators::InstallGenerator do
 
   context "Rails version 3.1 or higher" do
     before(:each) do
-      ::Rails.stub(:version) { "3.1" }
+      allow(::Rails).to receive(:version) { "3.1" }
       run_generator
     end
 
@@ -43,7 +43,7 @@ describe Pwdcalc::Generators::InstallGenerator do
 
   context "Rails version 3.0 or lower" do
     before(:each) do
-      ::Rails.stub(:version) { "3.0" }
+      allow(::Rails).to receive(:version) { "3.0" }
       run_generator
     end
 
