@@ -14,14 +14,14 @@ RSpec.describe Pwdcalc::Helpers::FormHelper, :type => :helper do
     end
   end
 
-  describe '#pwdcalc_i18n_hints' do
+  describe '#pwdcalc_translated_hints' do
     it 'returns HTML content' do
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="weak">Password is very weak.</div>')
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="fair">Password could be more secure.</div>')
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="good">Password is okay.</div>')
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="strong">Password is strong.</div>')
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="very-strong">Password is perfect!</div>')
-      expect(helper.pwdcalc_i18n_hints).to match('<div class="pwdcalc-hint" data-complexity="dictionary-word">Password is too obvious.</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="weak">Password is very weak.</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="fair">Password could be more secure.</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="good">Password is okay.</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="strong">Password is strong.</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="very-strong">Password is perfect!</div>')
+      expect(helper.pwdcalc_translated_hints).to match('<div class="pwdcalc-hint" data-complexity="dictionary-word">Password is too obvious.</div>')
     end
   end
 

@@ -52,7 +52,7 @@ Use *Pwdcalc::FormBuilder* to automatically create password field/-strength mete
 
 Add the following line somewhere inside your view (e.g. at the bottom of your form):
 
-  <%= pwdcalc_i18n_hints %>
+  <%= pwdcalc_translated_hints %>
 
 === Dictionary Attacks
 

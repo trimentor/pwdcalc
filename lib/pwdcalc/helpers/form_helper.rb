@@ -15,7 +15,7 @@ module Pwdcalc
         content_tag(:div, "", :class => 'pwdcalc-help-block')
       end
 
-      def pwdcalc_i18n_hints
+      def pwdcalc_translated_hints
         content_tag(:div, :class => 'pwdcalc-hints') do
           safe_join Pwdcalc::Helpers::Hints.translate_hints.map.with_index { |hint, index|
             content_tag(:div, hint, :class => 'pwdcalc-hint', :data => {:complexity => Pwdcalc::Helpers::Hints::STRENGTH_TYPES[index].to_s.gsub(/_/, '-')})
