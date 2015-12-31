@@ -47,6 +47,8 @@ Use +Pwdcalc::FormBuilder+ to automatically create password field/-strength mete
       <%= f.submit %>
     </div>
   <% end %>
+
+*NOTE:* It's required to wrap the control in +pwdcalc-form-group+.
   
 === Localized Hints
 
