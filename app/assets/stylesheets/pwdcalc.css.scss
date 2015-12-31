@@ -1,26 +1,28 @@
-$pwdcalc_score_background_color: #EEE;
-$pwdcalc_weak_text_color: #CC3333;
-$pwdcalc_fair_text_color: #F89406;
-$pwdcalc_good_text_color: #339900;
-$pwdcalc_ditionary_word_text_color: #CC3333;
+$pwdcalc-score-background-color: #EEE;
+$pwdcalc-weak-text-color: #CC3333;
+$pwdcalc-fair-text-color: #F89406;
+$pwdcalc-good-text-color: #339900;
+$pwdcalc-ditionary-word-text-color: #CC3333;
 
-.pwdcalc-form-group {
-  position: relative;
+$pwdcalc-gauge-step-width: 10px;
+$pwdcalc-gauge-steps: 5;
+$pwdcalc-gauge-width: $pwdcalc-gauge-step-width * $pwdcalc-gauge-steps;
+
+.pwdcalc-input-group {
+  display: flex;
+  align-items: center;
 }
 
-.pwdcalc-hints {
-  display: none;
-}
-
-.password-help-block {
-  display:none;
+.pwdcalc-form-control {
+  box-sizing: border-box;
+  padding-right: 2*$pwdcalc-gauge-step-width + $pwdcalc-gauge-width;
 }
 
 .pwdcalc-gauge {
-  $step_width: 10px;
   display: none;
+  margin-left: -($pwdcalc-gauge-width + $pwdcalc-gauge-step-width);
   height: 10px;
-  width: $step_width * 5;
+  width: $pwdcalc-gauge-width;
 
   span, b {
     display: block;
@@ -28,59 +30,64 @@ $pwdcalc_ditionary_word_text_color: #CC3333;
   }
 
   span {
-    background-color: $pwdcalc_score_background_color;
+    background-color: $pwdcalc-score-background-color;
     width: inherit;
 
     b {
       width: 1px;
-      background-color: $pwdcalc_good_text_color;
+      background-color: $pwdcalc-good-text-color;
       content: "";
     }
   }
 
   &[data-strength="dictionary-word"] b {
-    width: $step_width * 5;
-    background-color: darken($pwdcalc_ditionary_word_text_color, 5);
+    width: $pwdcalc-gauge-step-width * 5;
+    background-color: darken($pwdcalc-ditionary-word-text-color, 5);
   }
 
   &[data-strength="weak"] b {
-    width: $step_width;
-    background-color: darken($pwdcalc_weak_text_color, 5);
+    width: $pwdcalc-gauge-step-width;
+    background-color: darken($pwdcalc-weak-text-color, 5);
   }
 
   &[data-strength="fair"] b {
-    width: $step_width * 2;
-    background-color: darken($pwdcalc_fair_text_color, 5);
+    width: $pwdcalc-gauge-step-width * 2;
+    background-color: darken($pwdcalc-fair-text-color, 5);
   }
 
   &[data-strength="good"] b {
-    width: $step_width * 3;
+    width: $pwdcalc-gauge-step-width * 3;
   }
 
   &[data-strength="strong"] b {
-    width: $step_width * 4;
+    width: $pwdcalc-gauge-step-width * 4;
   }
 
   &[data-strength="very-strong"] b {
-    width: $step_width * 5;
+    width: $pwdcalc-gauge-step-width * 5;
   }
 }
 
+.pwdcalc-hints,
+.password-help-block {
+  display: none;
+}
+
 .pwdcalc-help-block[data-complexity="weak"] {
-  color: $pwdcalc_weak_text_color;
+  color: $pwdcalc-weak-text-color;
 }
 .pwdcalc-help-block[data-complexity="fair"] {
-  color: $pwdcalc_fair_text_color;
+  color: $pwdcalc-fair-text-color;
 }
 .pwdcalc-help-block[data-complexity="good"] {
-  color: $pwdcalc_good_text_color;
+  color: $pwdcalc-good-text-color;
 }
 .pwdcalc-help-block[data-complexity="strong"] {
-  color: $pwdcalc_good_text_color;
+  color: $pwdcalc-good-text-color;
 }
 .pwdcalc-help-block[data-complexity="very-strong"] {
-  color: $pwdcalc_good_text_color;
+  color: $pwdcalc-good-text-color;
 }
 .pwdcalc-help-block[data-complexity="dictionary-word"] {
-  color: $pwdcalc_ditionary_word_text_color;
+  color: $pwdcalc-ditionary-word-text-color;
 }
