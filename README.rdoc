@@ -1,70 +1,60 @@
 = pwdcalc
 
-Improve the user experience and security of your web application within just a few seconds by installing the *pwdcalc* gem: display a password strength meter on your sign up form.
+Improve the user experience and security of your web application within just a few seconds by installing the *pwdcalc* gem.
+It extends your password fields with a strength bar and hint, enforcing a minimum complexity for security reasons.
 
 Take no risk and help your users to choose good passwords!
-
-Formtastic and SimpleForm are both supported!
 
 == Installation
 
 Add pwdcalc to your Gemfile and bundle it up:
 
-  gem 'pwdcalc'
+  gem 'pwdcalc', :git => 'https://github.com/trimentor/pwdcalc.git'
+
+Run the following command to install it:
+
+  bundle install
 
 Run the installation generator:
 
   rails g pwdcalc:install
 
-=== JavaScript
-
-==== Rails < 3.1
-
-Add the following asset tag to the <head> section of your layout:
-
-  <%= javascript_include_tag "jquery.YAPSM.min", "jquery.pwdcalc" %>
-
-==== Rails >= 3.1
+== Usage
 
 Add the following directives to your JavaScript manifest file:
 
   //= require jquery.YAPSM.min
   //= require jquery.pwdcalc
 
-=== Stylesheets
-
-==== Rails < 3.1
-
-Add the following asset tag to the <head> section of your layout:
-
-  <%= stylesheet_link_tag "formtastic", "pwdcalc" %>
-
-==== Rails >= 3.1
-
 Add the following directives to your CSS manifest file:
 
-  *= require formtastic
   *= require pwdcalc
 
-== Usage
+Use +Pwdcalc::FormBuilder+ to automatically create password field/-strength meter combinations:
 
-To create a password field/-strength meter combination, simply put the following line in your form:
+  <%= form_for @user, builder: Pwdcalc::FormBuilder do |f| %>
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= text_field :username %>
+    </div>
 
-=== Using Formtastic
+    <div class="field pwdcalc-form-group">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
 
-  <%= form.input :password, :as => :pwdcalc %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
 
-=== Using SimpleForm
-
-  <%= form.input :password, :as => :pwdcalc_simple %>
-
-That's it!
-
+*NOTE:* It's required to wrap the control in +pwdcalc-form-group+.
+  
 === Localized Hints
 
-Add the following line somewhere inside your view (e.g. at the bottom of your page):
+Add the following line somewhere inside your view (e.g. at the bottom of your form):
 
-  <%= pwdcalc_hints %>
+  <%= pwdcalc_translated_hints %>
 
 === Dictionary Attacks
 
@@ -73,7 +63,7 @@ easily-predicted variations on words, vulnerable for dictionary attacks.
 
 It's easy to provide a list of *obvious* passwords. Just add the +data-dictionary+ attribute to the input field:
 
-  <%= form.input :password, :as => :pwdcalc, :'data-dictionary' => 'obviousPasswords()' %>
+  <%= f.password_field, :data => { :dictionary => 'obviousPasswords()' } %>
 
 Keep in mind that the value should evaluate to an array.
 
@@ -81,17 +71,15 @@ Keep in mind that the value should evaluate to an array.
 
 The +pwdcalc-submit+ event is sent to the document when the user is attempting to submit the form.
 
-  $(document).bind('pwdcalc-submit', handler(eventObject, origEventObject, field))
+  $(document).on('pwdcalc-submit', handler(eventObject, origEventObject, field))
 
 The +pwdcalc-keyup-init+ event is sent to the document when the user releases a key on the keyboard and before a score and hint is shown or hidden.
 
-  $(document).bind('pwdcalc-keyup-init', handler(eventObject, origEventObject, field))
+  $(document).on('pwdcalc-keyup-init', handler(eventObject, origEventObject, field))
 
 The +pwdcalc-keyup-complete+ event is sent to the document when the user releases a key on the keyboard and after a score and hint is shown or hidden.
 
-  $(document).bind('pwdcalc-keyup-complete', handler(eventObject, origEventObject, field))
-
-**NOTE:** As of jQuery 1.7, the {.on()}[http://api.jquery.com/on/] method is the preferred method for attaching event handlers to a document.
+  $(document).on('pwdcalc-keyup-complete', handler(eventObject, origEventObject, field))
 
 == YAPSM (Yet Another Password Strength Meter)
 
