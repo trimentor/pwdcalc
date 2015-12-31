@@ -38,7 +38,7 @@ Use *Pwdcalc::FormBuilder* to automatically create password field/-strength mete
       <%= text_field :username %><br>
     </div>
 
-    <div class="field pwdcalc-form-group"
+    <div class="field pwdcalc-form-group">
       <%= f.label :password %>
       <%= f.password_field :password %><br>
     </div>
