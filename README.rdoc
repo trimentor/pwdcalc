@@ -30,7 +30,7 @@ Add the following directives to your CSS manifest file:
 
   *= require pwdcalc
 
-Use *Pwdcalc::FormBuilder* to automatically create password field/-strength meter combinations:
+Use +Pwdcalc::FormBuilder+ to automatically create password field/-strength meter combinations:
 
   <%= form_for @user, builder: Pwdcalc::FormBuilder do |f| %>
     <div class="field">
