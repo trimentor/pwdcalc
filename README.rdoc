@@ -61,7 +61,7 @@ easily-predicted variations on words, vulnerable for dictionary attacks.
 
 It's easy to provide a list of *obvious* passwords. Just add the +data-dictionary+ attribute to the input field:
 
-  <%= f.password_field, :'data-dictionary' => 'obviousPasswords()' %>
+  <%= f.password_field, :data => { :dictionary => 'obviousPasswords()' } %>
 
 Keep in mind that the value should evaluate to an array.
 
