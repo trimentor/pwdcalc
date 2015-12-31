@@ -90,7 +90,7 @@ https://github.com/trimentor/pwdcalc/blob/master/LICENSE
 
   })();
 
-  $(function() {
+  $(document).on('ready page:load', function () {
     return $(".pwdcalc-form-group").each(function() {
       return new Pwdcalc(this);
     });
